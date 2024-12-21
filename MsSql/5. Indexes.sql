@@ -3,10 +3,10 @@ select
     t.name                          as TableName,
     ind.name                        as IndexName,
     col.name                        as FieldName,
-    ic.key_ordinal	                as FieldPosition,
+    ic.key_ordinal                  as FieldPosition,
     is_unique                       as IsUnique,
     ind.type_desc                   as IndexType,
-    is_primary_key	                as IsPrimary
+    is_primary_key                  as IsPrimary
 from
     sys.indexes ind
         inner join sys.index_columns ic on  ind.object_id = ic.object_id and ind.index_id = ic.index_id
