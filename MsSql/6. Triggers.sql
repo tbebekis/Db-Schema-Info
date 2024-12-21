@@ -2,7 +2,7 @@ select
     SCHEMA_NAME(t.schema_id)                       		    as SchemaName, 
     tr.name                                                 as TriggerName,    
     t.name                                                  as TableName,
-    tt.IsAfter + tt.IsInsert + tt.IsUpdate + tt.IsDelete	as TriggerType,
+    tt.IsAfter + tt.IsInsert + tt.IsUpdate + tt.IsDelete    as TriggerType,
     tr.is_disabled                                          as IsInactive,
     OBJECT_DEFINITION(tr.object_id)                         as Definition
 from 
