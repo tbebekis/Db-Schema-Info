@@ -1,17 +1,17 @@
 select distinct
-       Constraints.constraint_schema				as SchemaName,
-       Constraints.constraint_name                  as ConstraintName,
-       Constraints.constraint_type                  as ConstraintType,
-       KeyColumns.table_name					    as TableName,
-       KeyColumns.column_name					    as FieldName,
-       coalesce(Constraints2.table_name, '')        as ForeignTable,
-   	   coalesce(ForeignInfo.ForeignField, '') 		as ForeignField,
-       coalesce(Constraints2.table_schema, '')      as ForeignSchema,
-       coalesce(Refs.update_rule, '')				as UpdateRule,
-       coalesce(Refs.delete_rule, '')				as DeleteRule,
-       KeyColumns.ordinal_position				    as FieldPosition
+  Constraints.constraint_schema                    as SchemaName,
+  Constraints.constraint_name                      as ConstraintName,
+  Constraints.constraint_type                      as ConstraintType,
+  KeyColumns.table_name                            as TableName,
+  KeyColumns.column_name                           as FieldName,
+  coalesce(Constraints2.table_name, '')            as ForeignTable,
+  coalesce(ForeignInfo.ForeignField, '')           as ForeignField,
+  coalesce(Constraints2.table_schema, '')          as ForeignSchema,
+  coalesce(Refs.update_rule, '')                   as UpdateRule,
+  coalesce(Refs.delete_rule, '')                   as DeleteRule,
+  KeyColumns.ordinal_position                      as FieldPosition
 from
-       INFORMATION_SCHEMA.TABLE_CONSTRAINTS as Constraints
+  INFORMATION_SCHEMA.TABLE_CONSTRAINTS as Constraints
    		inner join INFORMATION_SCHEMA.KEY_COLUMN_USAGE as KeyColumns
    			on (Constraints.constraint_catalog = KeyColumns.constraint_catalog or Constraints.constraint_catalog is null)
    			and Constraints.constraint_schema = KeyColumns.constraint_schema

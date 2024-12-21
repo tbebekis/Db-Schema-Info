@@ -1,5 +1,5 @@
 select
-    SCHEMA_NAME(t.schema_id)                       		    as SchemaName, 
+    SCHEMA_NAME(t.schema_id)                                as SchemaName, 
     tr.name                                                 as TriggerName,    
     t.name                                                  as TableName,
     tt.IsAfter + tt.IsInsert + tt.IsUpdate + tt.IsDelete    as TriggerType,
