@@ -13,8 +13,8 @@ from
         inner join sys.columns col on ic.object_id = col.object_id and ic.column_id = col.column_id
         inner join sys.tables t on ind.object_id = t.object_id
 where
-    t.is_ms_shipped = 0 AND
-    ic.is_included_column = 0
+    t.is_ms_shipped = 0 
+    and ic.is_included_column = 0
 order by
     t.name,
     ind.name,
