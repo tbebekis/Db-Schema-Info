@@ -1,7 +1,8 @@
 select 
     tl.[schema]                                 as SchemaName,
     ''                                          as ConstraintName,
-    ''                                          as ConstraintType,
+    'FOREIGN KEY'                               as ConstraintTypeText,
+    2                                           as ConstraintType,
     t.name                                      as TableName,
     fk.[from]                                   as FieldName,
     fk.[table]                                  as ForeignTable,

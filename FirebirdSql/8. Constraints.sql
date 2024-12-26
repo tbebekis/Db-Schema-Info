@@ -1,7 +1,15 @@
 select 
     rel.RDB$OWNER_NAME                      as SchemaName,    
     rc.RDB$CONSTRAINT_NAME                  as ConstraintName,
-    coalesce(rc.RDB$CONSTRAINT_TYPE, '''')  as ConstraintType,
+    coalesce(rc.RDB$CONSTRAINT_TYPE, '')    as ConstraintTypeText,
+    case coalesce(rc.RDB$CONSTRAINT_TYPE, '')
+        when 'PRIMARY KEY' then 1
+        when 'FOREIGN KEY' then 2
+        when 'UNIQUE' then 3
+        when 'CHECK' then 4
+        when 'NOT NULL' then 5
+        else 0
+    end                                     as ConstraintType,
     rc.RDB$RELATION_NAME                    as TableName,
     s.RDB$FIELD_NAME                        as FieldName,
     coalesce(i2.RDB$RELATION_NAME, '')      as ForeignTable,
@@ -25,3 +33,6 @@ order by
     rc.RDB$RELATION_NAME,
     rc.RDB$CONSTRAINT_NAME,
     s.RDB$FIELD_POSITION  
+
+
+ 

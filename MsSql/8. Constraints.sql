@@ -1,7 +1,15 @@
 select distinct
   Constraints.constraint_schema                    as SchemaName,
   Constraints.constraint_name                      as ConstraintName,
-  Constraints.constraint_type                      as ConstraintType,
+  coalesce(Constraints.constraint_type, '')        as ConstraintTypeText,
+  case coalesce(Constraints.constraint_type, '')
+      when 'PRIMARY KEY' then 1
+      when 'FOREIGN KEY' then 2
+      when 'UNIQUE' then 3
+      when 'CHECK' then 4
+      when 'NOT NULL' then 5
+      else 0
+  end                                              as ConstraintType,
   KeyColumns.table_name                            as TableName,
   KeyColumns.column_name                           as FieldName,
   coalesce(Constraints2.table_name, '')            as ForeignTable,
