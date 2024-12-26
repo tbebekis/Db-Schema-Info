@@ -58,8 +58,6 @@ alter pluggable database XEPDB1 open;
 -- create the user
 create user User_Name identified by Password ACCOUNT UNLOCK;
 
-select name, open_mode  from v$pdbs; -- pluggable databases
-
 -----------------------------------------------------------------------
  ● To drop a Pluggable Database (PDB)
 -----------------------------------------------------------------------
