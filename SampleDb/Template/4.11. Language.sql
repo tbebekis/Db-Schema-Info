@@ -1,6 +1,0 @@
-insert into @OWNER_SCHEMA.LANGUAGE(NAME,LAST_UPDATE) values ('English','2006-02-15 05:02:19');
-insert into @OWNER_SCHEMA.LANGUAGE(NAME,LAST_UPDATE) values ('Italian','2006-02-15 05:02:19');
-insert into @OWNER_SCHEMA.LANGUAGE(NAME,LAST_UPDATE) values ('Japanese','2006-02-15 05:02:19');
-insert into @OWNER_SCHEMA.LANGUAGE(NAME,LAST_UPDATE) values ('Mandarin','2006-02-15 05:02:19');
-insert into @OWNER_SCHEMA.LANGUAGE(NAME,LAST_UPDATE) values ('French','2006-02-15 05:02:19');
-insert into @OWNER_SCHEMA.LANGUAGE(NAME,LAST_UPDATE) values ('German','2006-02-15 05:02:19');
