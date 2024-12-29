@@ -1,0 +1,16 @@
+insert into public.category (Id,name,last_update) values ('5DE9C7CD-7E02-44A3-954C-6F6DFD5FE03E','Action','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('8003B83F-9FE9-4092-900A-78BA87529A56','Animation','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('3F25BB0D-9903-44F2-9223-8EDFB63E8CE7','Children','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('839CDCFE-70D0-48DD-8D21-4FF52B130296','Classics','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('90B29ABF-2CCE-444E-82ED-1F17A267F819','Comedy','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('92FAC9B8-6CAD-4755-A082-89A745CC3AF4','Documentary','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('B87037B3-9F1D-4AC8-A10E-F780BB627105','Drama','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('7707ADF0-36F8-41F5-B9F9-2396C05F0C85','Family','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('08ADD82A-AEEC-406D-A5A0-7FF786D64BD2','Foreign','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('762E5F02-B004-457C-9882-465C490D50F3','Games','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('6285C97C-D528-4E96-AADA-0D0D96452FA7','Horror','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('361F39E3-95B7-407E-B761-DC4A7A21469B','Music','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('1BE13614-BD42-44C7-8B96-9EB66E567107','New','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('59413ABD-D3ED-4E57-9D0D-F9FAE3A4F4B6','Sci-Fi','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('303CFA26-FCF4-4AD6-A247-4B109E2168D3','Sports','2006-02-15 04:46:27');
+insert into public.category (Id,name,last_update) values ('9D290606-6E7E-420A-988D-CD2CE36B625F','Travel','2006-02-15 04:46:27');

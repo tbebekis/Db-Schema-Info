@@ -1,0 +1,2 @@
+insert into public.store (Id,manager_staff_id,address_id,last_update) values ('1F2BB9F6-0470-4181-A515-C47AE319B42A','2AA3F577-EA79-4424-8938-AB8C2541A770','88ABA94A-EF68-40EE-9336-4456033177B7','2006-02-15 04:57:12');
+insert into public.store (Id,manager_staff_id,address_id,last_update) values ('D47D86A1-E9F5-4BAD-A79E-42192BA3CDC2','19E9CD3C-616C-442F-89FD-37C8C7C7B309','1D4179FB-DCEA-4630-BCE7-8110FE07A152','2006-02-15 04:57:12');
