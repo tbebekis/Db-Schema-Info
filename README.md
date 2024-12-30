@@ -169,6 +169,16 @@ To create a common user in a CDB database the user name must be prefixed with `C
     CREATE USER c##User_Name IDENTIFIED BY Password ACCOUNT UNLOCK;
 ```
 
+#### Oracle Database, Schema and User
+
+In Oracle a database is a collection of Schemas.
+
+A Schema is owned by a User. User and Schema share the same name. In Oracle, users and schemas are essentially the same thing.
+
+A Schema is a collection of database objects, such as tables, views, indexes, etc.
+
+That is a Schema/User has his own collection of tables, views, etc., in a database.
+
 #### The `sqlplus` Command Line Tool
 
 The [`sqlplus`](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlqr/SQL-Plus-Commands.html) Command Line Tool provides access to the Oracle dabases. Using the `sqlplus` the user can 
@@ -214,7 +224,7 @@ The following assumes that [Oracle Database Express Edition (XE)](https://www.or
         ROLES = (dba) 
         default tablespace PDB1_USERS
         datafile 'C:\Oracle\oradata\XE\PDB1\pdb1_users01.dbf' size 250m autoextend on
-        storage (maxsize 1g max_shared_temp_size 1g)
+        storage (maxsize 10g max_shared_temp_size 10g)
         file_name_convert=('C:\Oracle\oradata\XE\pdbseed', 'C:\Oracle\oradata\XE\PDB1\');
 
     alter pluggable database  PDB1 open read write force;   
@@ -252,13 +262,13 @@ There is a lot of variations in [granting privileges](https://www.atlassian.com/
 
 Connect ot `sqlplus`.
 ```
-    sqlplus SYSTEM/YourPassword@localhost as SYSDBA
+    sqlplus SYSTEM/YourPassword@localhost as SYSDBA    
 ```
 
-Close the database.
+Close any connection.
 
 ```
-    alter pluggable database PDB1 close;
+    alter pluggable database PDB1 close immediate instances=ALL; 
 ```
 
 To drop a pluggable database and keep its datafiles.
@@ -280,9 +290,9 @@ To drop a pluggable database along with its datafiles.
 
     create pluggable database DVD admin user User_Name identified by "Password"
         ROLES = (dba) 
-        default tablespace PDB1_USERS
-        datafile 'C:\Oracle\oradata\XE\DVD\pdb1_users01.dbf' size 250m autoextend on
-        storage (maxsize 1g max_shared_temp_size 1g)
+        default tablespace DVD_USERS
+        datafile 'C:\Oracle\oradata\XE\DVD\dvd_users01.dbf' size 250m autoextend on
+        storage (maxsize 10g max_shared_temp_size 10g)
         file_name_convert=('C:\Oracle\oradata\XE\pdbseed', 'C:\Oracle\oradata\XE\DVD\');
 
     alter pluggable database DVD open read write force;   

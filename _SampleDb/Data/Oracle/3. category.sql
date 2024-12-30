@@ -1,0 +1,16 @@
+insert into DVD.category (Id,name,last_update) values ('20827CC0-8003-4072-A352-F50A9EDEDE4A','Action','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('5E8D8AD0-721D-4E79-9EE6-D03981F0DA52','Animation','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('CEBCFE35-9D62-4CAB-A821-43CF13F67A48','Children','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('E7989654-AADA-4BCA-BC95-416985F2B5BA','Classics','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('D1B2568C-C0B2-49B1-965E-CA138400487B','Comedy','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('0D0012FF-B472-4041-A1B4-108677C15DF6','Documentary','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('1329213C-EE36-4D6F-A226-3BA0EFABF4E1','Drama','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('2420329D-FDE1-462E-A7E6-0B8A876622B1','Family','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('A6D78EB1-E8A7-4EA2-8B69-2060B8462E43','Foreign','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('47495498-F129-4F62-9B28-C345994E3BD9','Games','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('7A3E7362-2902-469B-BAEA-A8C02386CC7E','Horror','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('EB175DA0-E414-48D9-981F-30064F1AE94C','Music','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('BA804A11-5B16-4505-A595-A5CEF938EE65','New','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('9CDF6919-2010-4204-A252-5C1E3FBF7F82','Sci-Fi','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('8331921C-4C13-45B8-9F98-6356968BE026','Sports','2006-02-15 04:46:27');
+insert into DVD.category (Id,name,last_update) values ('A814BE76-8DB3-4E1B-B42F-F1D51C5235B2','Travel','2006-02-15 04:46:27');

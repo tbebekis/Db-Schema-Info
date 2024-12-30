@@ -1,13 +1,13 @@
-create table dvd.actor (
-  Id          nvarchar2(40) not null ,  
+create table DVD.actor (
+  Id          nvarchar2(40) not null primary key,
   first_name  nvarchar2(45) not null ,
   last_name   nvarchar2(45) not null ,
   last_update date default sysdate 
 );
 
 
-create table dvd.address (
-  Id          nvarchar2(40) not null ,  
+create table DVD.address (
+  Id          nvarchar2(40)  not null primary key,
   address     nvarchar2(50)              not null ,
   address2    nvarchar2(50) default null          ,
   district    nvarchar2(20)              not null ,
@@ -18,30 +18,32 @@ create table dvd.address (
 );
  
 
-create table dvd.category (
-  Id          nvarchar2(40) not null ,  
+create table DVD.category (
+  Id          nvarchar2(40)  not null primary key,
   name        nvarchar2(25) not null ,
   last_update date  default sysdate 
 );
 
 
-create table dvd.city (
-  Id          nvarchar2(40) not null ,  
+create table DVD.city (
+  Id          nvarchar2(40)  not null primary key,
   city        nvarchar2(50) not null ,
   country_id  nvarchar2(40) not null ,  
-  last_update date  default sysdate 
+  last_update date  default sysdate,
+
+  constraint FK_city_1 foreign key (country_id) references DVD.country (Id)   
 );
 
 
-create table dvd.country (
-  Id          nvarchar2(40) not null ,  
+create table DVD.country (
+  Id          nvarchar2(40)  not null primary key,
   country     nvarchar2(50) not null ,
   last_update date default sysdate 
 );
  
 
-create table dvd.customer (
-  Id          nvarchar2(40) not null ,  
+create table DVD.customer (
+  Id          nvarchar2(40)  not null primary key,
   store_id    nvarchar2(40) not null ,  
   first_name  nvarchar2(45)              not null ,
   last_name   nvarchar2(45)              not null ,
@@ -49,26 +51,39 @@ create table dvd.customer (
   address_id  nvarchar2(40) not null ,  
   active      integer       default 1    not null ,
   create_date date default sysdate, 
-  last_update date default sysdate 
+  last_update date default sysdate,
+
+  constraint CH_customer_1 check (active in (0,1))
 );
 
+ 
 
-create table dvd.film_actor (
+create table DVD.film_actor (
   actor_id    nvarchar2(40) not null ,  
   film_id     nvarchar2(40) not null ,  
-  last_update date default sysdate 
+  last_update date default sysdate,
+
+  constraint PK_film_actor primary key (actor_id, film_id),
+
+  constraint FK_film_actor_1 foreign key (actor_id) references DVD.actor (Id) , 
+  constraint FK_film_actor_2 foreign key (film_id) references DVD.film (Id)
 );
 
 
-create table dvd.film_category (
+create table DVD.film_category (
   film_id     nvarchar2(40) not null ,  
   category_id nvarchar2(40) not null ,  
-  last_update date default sysdate 
+  last_update date default sysdate,
+
+  constraint PK_film_category primary key (film_id, category_id),
+
+  constraint FK_film_category_1 foreign key (film_id) references DVD.film (Id) ,
+  constraint FK_film_category_2 foreign key (category_id) references DVD.category (Id) 
 );
  
 
-create table dvd.film (
-  Id                   nvarchar2(40) not null ,  
+create table DVD.film (
+  Id                   nvarchar2(40)  not null primary key,
   title                nvarchar2(255)               not null ,
   description          nclob     default null           ,
   release_year         nvarchar2(40)   default null           ,
@@ -80,27 +95,38 @@ create table dvd.film (
   replacement_cost     decimal(5,2)        default 19.99 not null ,
   rating               nvarchar2(10)  default 'G'            ,
   special_features     nvarchar2(100) default null           ,
-  last_update          date default sysdate 
+  last_update          date default sysdate ,
+
+  constraint CH_film_1 check (rating in ('G','PG','PG-13','R','NC-17')),
+  constraint CH_film_2 check (special_features is null or
+            special_features like '%Trailers%' or
+            special_features like '%Commentaries%' or
+            special_features like '%Deleted Scenes%' or 
+            special_features like '%Behind the Scenes%'),
+
+  constraint FK_film_1 foreign key (language_id) references DVD.language (Id) ,
+  constraint FK_film_2 foreign key (original_language_id) references DVD.language (Id)              
 );
  
+ 
 
-create table dvd.inventory (
-  Id           nvarchar2(40) not null ,  
+create table DVD.inventory (
+  Id           nvarchar2(40)  not null primary key,
   film_id      nvarchar2(40) not null ,  
   store_id     nvarchar2(40) not null ,  
   last_update  date default sysdate 
 );
  
 
-create table dvd.language (
-  Id          nvarchar2(40) not null ,  
+create table DVD.language (
+  Id          nvarchar2(40)  not null primary key,
   name        nvarchar2(20) not null ,
   last_update date default sysdate 
 );
 
 
-create table dvd.payment (
-  Id           nvarchar2(40) not null ,  
+create table DVD.payment (
+  Id           nvarchar2(40)  not null primary key,
   customer_id  nvarchar2(40) not null ,  
   staff_id     nvarchar2(40) not null ,  
   rental_id    nvarchar2(40)     default null          ,
@@ -110,19 +136,22 @@ create table dvd.payment (
 );
 
 
-create table dvd.rental (
-  Id              nvarchar2(40) not null ,  
+create table DVD.rental (
+  Id              nvarchar2(40)  not null primary key,
   rental_date     date default sysdate  ,
   inventory_id    nvarchar2(40) not null ,       
   customer_id     nvarchar2(40)              not null ,
   return_date     date    default null          ,
   staff_id        nvarchar2(40)              not null ,
-  last_update     date  default sysdate  
+  last_update     date  default sysdate ,  
+
+  constraint UC_rental_1 unique (rental_date, inventory_id, customer_id)
 ); 
 
+ 
 
-create table dvd.staff (
-  Id          nvarchar2(40) not null ,  
+create table DVD.staff (
+  Id          nvarchar2(40) not null primary key,
   first_name  nvarchar2(45)              not null ,
   last_name   nvarchar2(45)              not null ,
   address_id  nvarchar2(40)                        not null ,
@@ -132,13 +161,15 @@ create table dvd.staff (
   active      integer       default 1    not null ,
   username    nvarchar2(16)              not null ,
   password    nvarchar2(40) default null          ,
-  last_update date  default sysdate   
+  last_update date  default sysdate ,
+
+  constraint CH_staff_1 check (active in (0,1)) 
 );
 
 
-create table dvd.store (
-  Id               nvarchar2(40) not null ,  
+create table DVD.store (
+  Id               nvarchar2(40) not null primary key,
   manager_staff_id nvarchar2(40) not null ,
   address_id       nvarchar2(40) not null ,
-  last_update      date default sysdate 
+  last_update      date default sysdate     
 );

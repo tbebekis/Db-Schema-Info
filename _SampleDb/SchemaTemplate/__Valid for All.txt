@@ -1,0 +1,29 @@
+create table Test (
+	Id varchar(20) not null primary key,
+	Name varchar(20),
+	IsActive integer default 0,
+
+	constraint UC_Test_1 unique (Name),
+	constraint CH_Test_1 check (IsActive in (0,1))
+);
+
+create table Test2 (
+	Id varchar(20) not null primary key,
+	TestId varchar(20),
+	Name varchar(20),
+
+	constraint FK_Test2_1 foreign key (TestId) references Test (Id)  
+);
+
+create table Test3 (
+	TestId varchar(20) not null,
+	Test2Id varchar(20) not null,
+	Name varchar(20),
+
+	constraint PK_Test3 primary key (TestId, Test2Id),
+
+	constraint FK_Test3_1 foreign key (TestId) references Test (Id),  
+	constraint FK_Test3_2 foreign key (Test2Id) references Test2 (Id)  
+);
+
+
