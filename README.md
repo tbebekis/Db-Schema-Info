@@ -73,9 +73,36 @@ The SELECT statements return the following Field Lists.
 ## Sample Database
 This repository contains `sql` files to create the widely used `dvdrental` sample database and feed it with data. That database can be used to test the SQL SELECT statements that return Database Schema information.
 
-## How to create the sample Database
+#### Sample Database Schema
+The schema for the sample database can be found at the `\_SampleDb\Schema` folder. There is a sub-folder for each RDBMS containing `*.sql` files with `DDL` statements.
+
+#### Sample Database data
+The data for the sample database can be found at the `\_SampleDb\Data` folder. There is a sub-folder for each RDBMS containing `*.sql` files with `INSERT INTO` statements.
+
+#### The order of `*.sql` file execution
+
+- Tables
+- Data
+- Foreign Keys
+- Indexes
+- Views
+- Triggers
+
+> **CAUTION** Data `*.sql` files should be executed with a certain order, as their file name dictates.
+
+
+#### How to execute `*.sql` files with Dbeaver
 
 I use the community edition of the excellent [Dbeaver](https://dbeaver.io/) tool. As their site states _DBeaver Community is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. It supports all popular SQL databases like MySQL, MariaDB, PostgreSQL, SQLite, Apache Family, and more_.
+
+In Dbeaver
+
+- Select the database node
+- Click on the toolbar button `SQL | New SQL Script`
+- Copy the content of an `*.sql` file and paste it to the Dbeaver SQL Script Editor
+- In SQL Script Editor, in the left-side toolbar, click on `Execute SQL script` button
+
+## How to create the sample Database
 
 Some databases can be created using a tool like Dbeaver. Others require [CLI tools](https://en.wikipedia.org/wiki/Command-line_interface).
 
