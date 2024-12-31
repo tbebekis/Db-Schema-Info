@@ -1,6 +1,6 @@
-insert into language (Id,name,last_update) values ('3CA0A672-F174-4570-BA81-2BDBE28E7C6E','English','2006-02-15 05:02:19');
-insert into language (Id,name,last_update) values ('42F45725-F9E0-4276-BA81-8C25C58337E5','Italian','2006-02-15 05:02:19');
-insert into language (Id,name,last_update) values ('10472724-FAFA-43A3-9966-55642A1ADC81','Japanese','2006-02-15 05:02:19');
-insert into language (Id,name,last_update) values ('C7539E44-AABF-4EAF-8799-5D08074532CF','Mandarin','2006-02-15 05:02:19');
-insert into language (Id,name,last_update) values ('FA4D80DC-2CDF-43F7-B9E4-CE3414DB400E','French','2006-02-15 05:02:19');
-insert into language (Id,name,last_update) values ('72C420BA-4308-4C94-A8C4-68941EE3B1B6','German','2006-02-15 05:02:19');
+insert into language (Id,name,last_update) values ('37DDC58E-0181-4CBD-9384-EAE070BE699E','English','2006-02-15 05:02:19');
+insert into language (Id,name,last_update) values ('07A5FD49-7CF9-4876-9874-0C0C706B26F0','Italian','2006-02-15 05:02:19');
+insert into language (Id,name,last_update) values ('8D4BC7C5-11F8-40D9-94CB-B896ACD71C82','Japanese','2006-02-15 05:02:19');
+insert into language (Id,name,last_update) values ('7F359A2C-FAD9-48F8-A78C-521E057D278F','Mandarin','2006-02-15 05:02:19');
+insert into language (Id,name,last_update) values ('A08F4B39-12E4-432C-BC01-1A724C39F37C','French','2006-02-15 05:02:19');
+insert into language (Id,name,last_update) values ('DDFF9427-39CE-4A9C-B75D-0069371EABA4','German','2006-02-15 05:02:19');

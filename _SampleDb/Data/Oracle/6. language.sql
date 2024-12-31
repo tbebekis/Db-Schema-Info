@@ -1,6 +1,6 @@
-insert into DVD.language (Id,name,last_update) values ('3B06B071-994F-4467-8CD2-9F9FCA951FA5','English','2006-02-15 05:02:19');
-insert into DVD.language (Id,name,last_update) values ('1DCA3FA2-5CC6-4323-87C1-D7BAB371EC6C','Italian','2006-02-15 05:02:19');
-insert into DVD.language (Id,name,last_update) values ('32817538-91FA-4A77-B00C-6AFC6BD77863','Japanese','2006-02-15 05:02:19');
-insert into DVD.language (Id,name,last_update) values ('47712D7E-D393-43C3-80D2-64CBB8163A43','Mandarin','2006-02-15 05:02:19');
-insert into DVD.language (Id,name,last_update) values ('F1310970-E091-47A9-A449-9FDAEDCC512E','French','2006-02-15 05:02:19');
-insert into DVD.language (Id,name,last_update) values ('2B800ABD-843C-48C8-94A4-AF5004BDF1D7','German','2006-02-15 05:02:19');
+insert into DVD.language (Id,name,last_update) values ('C57D7542-9D28-4AF7-B39A-118EABE46AE4','English','2006-02-15 05:02:19');
+insert into DVD.language (Id,name,last_update) values ('293730A0-FC27-4015-8064-04FF6DF1178A','Italian','2006-02-15 05:02:19');
+insert into DVD.language (Id,name,last_update) values ('E2792DF0-C4FB-4EA8-AE25-EDC2C44234FB','Japanese','2006-02-15 05:02:19');
+insert into DVD.language (Id,name,last_update) values ('72BF4937-C1BD-4BF6-9091-E7534E621A77','Mandarin','2006-02-15 05:02:19');
+insert into DVD.language (Id,name,last_update) values ('6030D36D-0178-4F7A-802A-AF671EB9E59F','French','2006-02-15 05:02:19');
+insert into DVD.language (Id,name,last_update) values ('717FDB81-BDB9-4F27-9363-0363CCDE651E','German','2006-02-15 05:02:19');

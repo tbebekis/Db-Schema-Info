@@ -1,6 +1,6 @@
-insert into dbo.language (Id,name,last_update) values ('7D14724A-EAB9-41CA-9FBD-59E0DFFFBFE8','English','2006-02-15 05:02:19');
-insert into dbo.language (Id,name,last_update) values ('87AAA900-D609-4290-BE64-BB2A16BBCD05','Italian','2006-02-15 05:02:19');
-insert into dbo.language (Id,name,last_update) values ('18C10E22-43B1-4E16-9AE2-F20749968EB5','Japanese','2006-02-15 05:02:19');
-insert into dbo.language (Id,name,last_update) values ('3ED1B990-4714-4FA5-B417-466A1E8F2C78','Mandarin','2006-02-15 05:02:19');
-insert into dbo.language (Id,name,last_update) values ('2FFF1707-9E09-4F43-BE6C-4DACB9BB6B88','French','2006-02-15 05:02:19');
-insert into dbo.language (Id,name,last_update) values ('CA6A152B-C48C-4DFB-8F0E-53BF162049AA','German','2006-02-15 05:02:19');
+insert into dbo.language (Id,name,last_update) values ('15B69D40-7D87-4FD0-874B-21A69BC90BA6','English','2006-02-15 05:02:19');
+insert into dbo.language (Id,name,last_update) values ('2948233D-B846-4A72-AEB8-80FB2BB93C1C','Italian','2006-02-15 05:02:19');
+insert into dbo.language (Id,name,last_update) values ('1A2E8D63-4B53-4D6D-95BF-1A37A1F875C8','Japanese','2006-02-15 05:02:19');
+insert into dbo.language (Id,name,last_update) values ('1FF67A47-5192-46BB-B73F-A4DC5C0602E5','Mandarin','2006-02-15 05:02:19');
+insert into dbo.language (Id,name,last_update) values ('11CF5D9D-4FC3-47D8-8D4A-A56BDED89DB2','French','2006-02-15 05:02:19');
+insert into dbo.language (Id,name,last_update) values ('946CB653-7C51-4455-9AFF-D1663B019FA2','German','2006-02-15 05:02:19');
