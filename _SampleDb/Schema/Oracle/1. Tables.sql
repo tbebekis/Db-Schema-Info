@@ -2,9 +2,8 @@ create table DVD.actor (
   Id          nvarchar2(40) not null primary key,
   first_name  nvarchar2(45) not null ,
   last_name   nvarchar2(45) not null ,
-  last_update date default sysdate 
+  last_update timestamp default current_timestamp 
 );
-
 
 create table DVD.address (
   Id          nvarchar2(40)  not null primary key,
@@ -14,73 +13,35 @@ create table DVD.address (
   city_id     nvarchar2(40) not null , 
   postal_code nvarchar2(10) default null          ,
   phone       nvarchar2(20)              not null ,
-  last_update date  default sysdate 
-);
- 
+  last_update timestamp  default current_timestamp 
+); 
 
 create table DVD.category (
   Id          nvarchar2(40)  not null primary key,
   name        nvarchar2(25) not null ,
-  last_update date  default sysdate 
+  last_update timestamp  default current_timestamp 
 );
 
+create table DVD.country (
+  Id          nvarchar2(40)  not null primary key,
+  country     nvarchar2(50) not null ,
+  last_update timestamp default current_timestamp 
+);
 
 create table DVD.city (
   Id          nvarchar2(40)  not null primary key,
   city        nvarchar2(50) not null ,
   country_id  nvarchar2(40) not null ,  
-  last_update date  default sysdate,
+  last_update timestamp  default current_timestamp,
 
   constraint FK_city_1 foreign key (country_id) references DVD.country (Id)   
 );
 
-
-create table DVD.country (
+create table DVD.language (
   Id          nvarchar2(40)  not null primary key,
-  country     nvarchar2(50) not null ,
-  last_update date default sysdate 
+  name        nvarchar2(20) not null ,
+  last_update timestamp default current_timestamp 
 );
- 
-
-create table DVD.customer (
-  Id          nvarchar2(40)  not null primary key,
-  store_id    nvarchar2(40) not null ,  
-  first_name  nvarchar2(45)              not null ,
-  last_name   nvarchar2(45)              not null ,
-  email       nvarchar2(50) default null          ,
-  address_id  nvarchar2(40) not null ,  
-  active      integer       default 1    not null ,
-  create_date date default sysdate, 
-  last_update date default sysdate,
-
-  constraint CH_customer_1 check (active in (0,1))
-);
-
- 
-
-create table DVD.film_actor (
-  actor_id    nvarchar2(40) not null ,  
-  film_id     nvarchar2(40) not null ,  
-  last_update date default sysdate,
-
-  constraint PK_film_actor primary key (actor_id, film_id),
-
-  constraint FK_film_actor_1 foreign key (actor_id) references DVD.actor (Id) , 
-  constraint FK_film_actor_2 foreign key (film_id) references DVD.film (Id)
-);
-
-
-create table DVD.film_category (
-  film_id     nvarchar2(40) not null ,  
-  category_id nvarchar2(40) not null ,  
-  last_update date default sysdate,
-
-  constraint PK_film_category primary key (film_id, category_id),
-
-  constraint FK_film_category_1 foreign key (film_id) references DVD.film (Id) ,
-  constraint FK_film_category_2 foreign key (category_id) references DVD.category (Id) 
-);
- 
 
 create table DVD.film (
   Id                   nvarchar2(40)  not null primary key,
@@ -95,7 +56,7 @@ create table DVD.film (
   replacement_cost     decimal(5,2)        default 19.99 not null ,
   rating               nvarchar2(10)  default 'G'            ,
   special_features     nvarchar2(100) default null           ,
-  last_update          date default sysdate ,
+  last_update          timestamp default current_timestamp ,
 
   constraint CH_film_1 check (rating in ('G','PG','PG-13','R','NC-17')),
   constraint CH_film_2 check (special_features is null or
@@ -107,23 +68,49 @@ create table DVD.film (
   constraint FK_film_1 foreign key (language_id) references DVD.language (Id) ,
   constraint FK_film_2 foreign key (original_language_id) references DVD.language (Id)              
 );
- 
- 
+
+create table DVD.film_actor (
+  actor_id    nvarchar2(40) not null ,  
+  film_id     nvarchar2(40) not null ,  
+  last_update timestamp default current_timestamp,
+
+  constraint PK_film_actor primary key (actor_id, film_id),
+
+  constraint FK_film_actor_1 foreign key (actor_id) references DVD.actor (Id) , 
+  constraint FK_film_actor_2 foreign key (film_id) references DVD.film (Id)
+);
+
+create table DVD.film_category (
+  film_id     nvarchar2(40) not null ,  
+  category_id nvarchar2(40) not null ,  
+  last_update timestamp default current_timestamp,
+
+  constraint PK_film_category primary key (film_id, category_id),
+
+  constraint FK_film_category_1 foreign key (film_id) references DVD.film (Id) ,
+  constraint FK_film_category_2 foreign key (category_id) references DVD.category (Id) 
+);
+
+create table DVD.customer (
+  Id          nvarchar2(40)  not null primary key,
+  store_id    nvarchar2(40) not null ,  
+  first_name  nvarchar2(45)              not null ,
+  last_name   nvarchar2(45)              not null ,
+  email       nvarchar2(50) default null          ,
+  address_id  nvarchar2(40) not null ,  
+  active      integer       default 1    not null ,
+  create_date timestamp default current_timestamp, 
+  last_update timestamp default current_timestamp,
+
+  constraint CH_customer_1 check (active in (0,1))
+);
 
 create table DVD.inventory (
   Id           nvarchar2(40)  not null primary key,
   film_id      nvarchar2(40) not null ,  
   store_id     nvarchar2(40) not null ,  
-  last_update  date default sysdate 
+  last_update  timestamp default current_timestamp 
 );
- 
-
-create table DVD.language (
-  Id          nvarchar2(40)  not null primary key,
-  name        nvarchar2(20) not null ,
-  last_update date default sysdate 
-);
-
 
 create table DVD.payment (
   Id           nvarchar2(40)  not null primary key,
@@ -131,24 +118,21 @@ create table DVD.payment (
   staff_id     nvarchar2(40) not null ,  
   rental_id    nvarchar2(40)     default null          ,
   amount       decimal(5,2)              not null ,
-  payment_date date default sysdate  ,
-  last_update  date default sysdate 
+  payment_date timestamp default current_timestamp  ,
+  last_update  timestamp default current_timestamp 
 );
-
 
 create table DVD.rental (
   Id              nvarchar2(40)  not null primary key,
-  rental_date     date default sysdate  ,
+  rental_date     timestamp default current_timestamp  ,
   inventory_id    nvarchar2(40) not null ,       
   customer_id     nvarchar2(40)              not null ,
-  return_date     date    default null          ,
+  return_date     timestamp    default null          ,
   staff_id        nvarchar2(40)              not null ,
-  last_update     date  default sysdate ,  
+  last_update     timestamp  default current_timestamp ,  
 
   constraint UC_rental_1 unique (rental_date, inventory_id, customer_id)
 ); 
-
- 
 
 create table DVD.staff (
   Id          nvarchar2(40) not null primary key,
@@ -161,15 +145,14 @@ create table DVD.staff (
   active      integer       default 1    not null ,
   username    nvarchar2(16)              not null ,
   password    nvarchar2(40) default null          ,
-  last_update date  default sysdate ,
+  last_update timestamp  default current_timestamp ,
 
   constraint CH_staff_1 check (active in (0,1)) 
 );
-
 
 create table DVD.store (
   Id               nvarchar2(40) not null primary key,
   manager_staff_id nvarchar2(40) not null ,
   address_id       nvarchar2(40) not null ,
-  last_update      date default sysdate     
+  last_update      timestamp default current_timestamp     
 );

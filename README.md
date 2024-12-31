@@ -73,7 +73,7 @@ The SELECT statements return the following Field Lists.
 ## Sample Database
 This repository contains `sql` files to create the widely used `dvdrental` sample database and feed it with data. That database can be used to test the SQL SELECT statements that return Database Schema information.
 
-## Create the sample Database
+## How to create the sample Database
 
 I use the community edition of the excellent [Dbeaver](https://dbeaver.io/) tool. As their site states _DBeaver Community is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. It supports all popular SQL databases like MySQL, MariaDB, PostgreSQL, SQLite, Apache Family, and more_.
 
@@ -116,7 +116,8 @@ Using Dbeaver.
   - click on the `Create New Database` menu item
   - in the `Create...` dialog box provide a database name, e.g. `DVD`
   - click on `OK` button
-  - 
+
+
 #### MySql or MariaDb
 Using Dbeaver. 
 
@@ -143,6 +144,29 @@ Using Dbeaver.
   - select the Sqlite driver,
   - in the Connection dialog box provide a path for the database file, e.g. `C:\Temp\DVD.db3` and 
   - click on the `Create` button.
+
+## How to drop the sample Database
+
+#### FirebirdSql
+Close any connection to the database.
+
+Go to database's folder and delete the database file.
+#### MsSql
+Close any connection to the database.
+
+In Dbeaver select the database and hit the Delete key.
+#### MySql or MariaDb
+Close any connection to the database.
+
+In Dbeaver select the database and hit the Delete key.
+#### PostgreSql
+Close any connection to the database.
+
+In Dbeaver select the database and hit the Delete key.
+#### Sqlite
+Close any connection to the database.
+
+Go to database's folder and delete the database file.
 
 ## Oracle Databases
 

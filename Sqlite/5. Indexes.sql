@@ -16,7 +16,8 @@ from
         inner join pragma_index_list(i.tbl_name) il on il.name = i.name
         inner join pragma_table_list(i.tbl_name) tl on tl.name = i.tbl_name  
 where 
-    i.type = 'index'          
+    i.type = 'index'    
+    and il.origin not in ('pk', 'u')      
 order by
     tl.[schema],
 	TableName,
