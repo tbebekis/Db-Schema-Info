@@ -250,7 +250,7 @@ To connect to `sqlplus` the following is used
 
 #### To find out already existing Pluggable Databases (PDBs)
 
-Connect ot `sqlplus`.
+Connect to `sqlplus`.
 ```
     sqlplus SYSTEM/YourPassword@localhost as SYSDBA
 ```
@@ -283,7 +283,7 @@ The following assumes that [Oracle Database Express Edition (XE)](https://www.or
  
 #### To create a User in a Pluggable Database (PDB)
 
-Connect ot `sqlplus`.
+Connect to `sqlplus`.
 ```
     sqlplus SYSTEM/YourPassword@localhost as SYSDBA
 ```
@@ -311,7 +311,7 @@ There is a lot of variations in [granting privileges](https://www.atlassian.com/
 
 #### To drop a Pluggable Database (PDB)
 
-Connect ot `sqlplus`.
+Connect to `sqlplus`.
 ```
     sqlplus SYSTEM/YourPassword@localhost as SYSDBA    
 ```
