@@ -139,7 +139,7 @@ create table @OWNER_SCHEMA.staff (
   first_name  @NVARCHAR(45)              not null ,
   last_name   @NVARCHAR(45)              not null ,
   address_id  @NVARCHAR(40)                        not null ,
-  picture     blob              default null          ,
+  picture     @BLOB       default null          ,
   email       @NVARCHAR(50) default null          ,
   store_id    @NVARCHAR(40)                        not null ,
   active      integer       default 1    not null ,

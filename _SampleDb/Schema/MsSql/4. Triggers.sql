@@ -1,60 +1,90 @@
-create trigger actor_BU on  dbo.actor before update as
+create trigger dbo.actor_BU on  dbo.actor after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger address_BU on  dbo.address before update as
+create trigger dbo.address_BU on  dbo.address after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger category_BU on  dbo.category before update as
+create trigger dbo.category_BU on  dbo.category after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger city_BU on  dbo.city before update as
+create trigger dbo.city_BU on  dbo.city after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger country_BU on  dbo.country before update as
+create trigger dbo.country_BU on  dbo.country after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger customer_BU on  dbo.customer before update as
+create trigger dbo.customer_BU on  dbo.customer after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger film_actor_BU on  dbo.film_actor before update as
+create trigger dbo.film_actor_BU on  dbo.film_actor after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger film_category_BU on  dbo.film_category before update as
+create trigger dbo.film_category_BU on  dbo.film_category after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger film_BU on  dbo.film before update as
+create trigger dbo.film_BU on  dbo.film after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger inventory_BU on  dbo.inventory before update as
+create trigger dbo.inventory_BU on  dbo.inventory after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger language_BU on  dbo.language before update as
+create trigger dbo.language_BU on  dbo.language after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger payment_BU on  dbo.payment before update as
+create trigger dbo.payment_BU on  dbo.payment after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger rental_BU on  dbo.rental before update as
+create trigger dbo.rental_BU on  dbo.rental after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger staff_BU on  dbo.staff before update as
+create trigger dbo.staff_BU on  dbo.staff after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 
-create trigger store_BU on  dbo.store before update as
+create trigger dbo.store_BU on  dbo.store after update as
 begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
 end;
 

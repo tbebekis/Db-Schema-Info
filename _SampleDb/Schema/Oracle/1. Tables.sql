@@ -139,7 +139,7 @@ create table DVD.staff (
   first_name  nvarchar2(45)              not null ,
   last_name   nvarchar2(45)              not null ,
   address_id  nvarchar2(40)                        not null ,
-  picture     blob              default null          ,
+  picture     blob       default null          ,
   email       nvarchar2(50) default null          ,
   store_id    nvarchar2(40)                        not null ,
   active      integer       default 1    not null ,

@@ -139,7 +139,7 @@ create table dbo.staff (
   first_name  nvarchar(45)              not null ,
   last_name   nvarchar(45)              not null ,
   address_id  nvarchar(40)                        not null ,
-  picture     blob              default null          ,
+  picture     varbinary(max)       default null          ,
   email       nvarchar(50) default null          ,
   store_id    nvarchar(40)                        not null ,
   active      integer       default 1    not null ,

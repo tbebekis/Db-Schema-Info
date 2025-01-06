@@ -139,7 +139,7 @@ create table staff (
   first_name  varchar(45)              not null ,
   last_name   varchar(45)              not null ,
   address_id  varchar(40)                        not null ,
-  picture     blob              default null          ,
+  picture     LONGBLOB       default null          ,
   email       varchar(50) default null          ,
   store_id    varchar(40)                        not null ,
   active      integer       default 1    not null ,
