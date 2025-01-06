@@ -81,10 +81,6 @@ The data for the sample database can be found at the `\_SampleDb\Data` folder. T
 
 #### The order of `*.sql` file execution
 
-Schema `*.sql` files can be found at the `Schema` folder.
-
-Data `*.sql` files can be found at the `Data` folder.
-
 The correct order of execution follows:
 
 - Tables  
@@ -363,4 +359,11 @@ To drop a pluggable database along with its datafiles.
     grant all privileges to YourUserName identified by YourPassword;
 ```
 
+## Schema and Data origin, thanks to Ottmar Gobrecht
 
+Sample schema and sample data files were taken from **Ottmar Gobrecht's** [sample-data-sets-for-oracle](https://github.com/ogobrecht/sample-data-sets-for-oracle) repository and reworked for the supported RDBMs.
+
+Many many thanks to Ottmar Gobrecht for his work.
+
+
+ 

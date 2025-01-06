@@ -3,6 +3,7 @@
 @DATE
 @DECIMAL_
 @NBLOB_TEXT
+@BLOB
 @DEFAULT_INSERT_DATE
 @DEFAULT_UPDATE_DATE	
 --------------------------------------------------------------------------------------------
