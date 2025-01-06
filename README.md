@@ -81,8 +81,14 @@ The data for the sample database can be found at the `\_SampleDb\Data` folder. T
 
 #### The order of `*.sql` file execution
 
-- Tables
-- Data
+Schema `*.sql` files can be found at the `Schema` folder.
+
+Data `*.sql` files can be found at the `Data` folder.
+
+The correct order of execution follows:
+
+- Tables  
+- Data  (Insert all data. File names are numbered.)
 - Foreign Keys
 - Indexes
 - Views
@@ -119,7 +125,7 @@ The [`isql`](https://www.firebirdsql.org/file/documentation/html/en/firebirddocs
 ```
 isql
 
-CREATE DATABASE 'C:\path\to\DVD.fdb' USER 'SYSDBA' PASSWORD 'YourPassword' PAGE_SIZE 8192 DEFAULT CHARACTER SET UTF8;
+CREATE DATABASE 'C:\path\to\DVD.fdb' USER 'SYSDBA' PASSWORD 'YourPassword' PAGE_SIZE 32768 DEFAULT CHARACTER SET UTF8;
 
 exit;
 ```
@@ -130,7 +136,7 @@ Here is a copy of my terminal.
 C:\>cd C:\Program Files\Firebird\Firebird_5_0
 C:\Program Files\Firebird\Firebird_5_0>isql
 Use CONNECT or CREATE DATABASE to specify a database
-SQL> CREATE DATABASE 'C:\path\to\DVD.fdb' USER 'SYSDBA' PASSWORD 'YourPassword' PAGE_SIZE 8192 DEFAULT CHARACTER SET UTF8;
+SQL> CREATE DATABASE 'C:\path\to\DVD.fdb' USER 'SYSDBA' PASSWORD 'YourPassword' PAGE_SIZE 32768 DEFAULT CHARACTER SET UTF8;
 SQL> exit;
 C:\>
 ```
