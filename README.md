@@ -110,8 +110,6 @@ Some databases can be created using a tool like Dbeaver. Others require [CLI too
 
 #### FirebirdSql
 
-I didn't find a way to create a Firebird database with Dbeaver.
-
 The [`isql`](https://www.firebirdsql.org/file/documentation/html/en/firebirddocs/isql/firebird-isql.html) Firebird tool may used in creating a new Firebird database.
 
   - Run a terminal as administrator
@@ -241,7 +239,7 @@ The [`sqlplus`](https://docs.oracle.com/en/database/oracle/oracle-database/19/sq
 - Enter and execute SQL commands and PL/SQL blocks
 - Format and print query results
 
-The [`sqlplus`] must be in the system `path`.
+The `sqlplus` must be in the system `path`.
 
 To connect to `sqlplus` the following is used
 
@@ -361,7 +359,7 @@ To drop a pluggable database along with its datafiles.
 
 ## Schema and Data origin, thanks to Ottmar Gobrecht
 
-Sample schema and sample data files were taken from **Ottmar Gobrecht's** [sample-data-sets-for-oracle](https://github.com/ogobrecht/sample-data-sets-for-oracle) repository and reworked for the supported RDBMs.
+Sample schema and sample data files were taken from **Ottmar Gobrecht's** [sample-data-sets-for-oracle](https://github.com/ogobrecht/sample-data-sets-for-oracle) repository and reworked for the supported RDBMS.
 
 Many many thanks to Ottmar Gobrecht for his work.
 
