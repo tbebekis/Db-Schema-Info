@@ -1,0 +1,2 @@
+insert into DVD.store (Id,manager_staff_id,address_id,last_update) values ('6AB20A2B-A522-43B6-A107-91FB98A0F990','A0DE575C-7EDA-43C2-B2AA-AE48C4AE770E','F55618B7-C191-41B1-A31A-A4FD1E613EF0',to_timestamp('2006-02-15 04:57:12', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.store (Id,manager_staff_id,address_id,last_update) values ('3AF65F36-900D-473C-B304-546D65FD87DF','562BD542-1008-4843-BC1C-C50EE524E4D2','3D3BC72E-2387-4EB1-B16A-F6CB2D3777A0',to_timestamp('2006-02-15 04:57:12', 'YYYY/MM/DD HH24:MI:SS'));

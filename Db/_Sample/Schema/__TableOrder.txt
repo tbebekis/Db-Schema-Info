@@ -1,0 +1,43 @@
+--------------------------------------------------------
+    with Foreign Keys in CREATE TABLE
+--------------------------------------------------------
+1. actor
+2. address
+3. category
+4. country
+5. city
+6. language
+7. film
+8. film_actor
+9. film_category
+--------------------------------------------------------
+    with Foreign Keys outside CREATE TABLE 
+    and after INSERT-ing data 
+    NOTE: Sqlite does NOT support ALTER TABLE after creation
+--------------------------------------------------------
+10. customer
+11. inventory
+12. payment
+13. rental
+14. staff
+15. store
+--------------------------------------------------------
+delete
+--------------------------------------------------------
+delete from store;
+delete from staff;
+delete from rental;
+delete from payment;
+delete from inventory;
+delete from customer;
+delete from film_category;
+delete from film_actor;
+delete from film;
+delete from language;
+delete from city;
+delete from country;
+delete from category;
+delete from address;
+delete from actor;
+
+ 

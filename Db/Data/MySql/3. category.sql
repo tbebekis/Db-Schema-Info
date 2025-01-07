@@ -1,0 +1,16 @@
+insert into category (Id,name,last_update) values ('F2C85F5A-44EE-4B30-BD14-F6498F4748E6','Action','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('5A5ED861-933F-42B9-831D-8BC2C5472893','Animation','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('3A1B774A-E862-4F74-A518-DD30976D2CAC','Children','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('D5870BB4-FF76-4A21-93BC-379492EA9964','Classics','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('3E50E9BA-D990-4D7D-B9E3-00FD6F639DE3','Comedy','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('713608AA-7717-430B-B724-12F898D3FB30','Documentary','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('FC6FA67B-B2A7-4505-8D03-ADA383C941EC','Drama','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('18A994A3-5E14-40D7-B91B-AC2792A01091','Family','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('AA686EAC-631A-4931-8A2F-11C714708996','Foreign','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('E03CE193-AD13-4235-9E78-EE6023400148','Games','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('71C69990-EE47-4F02-89C3-3DBA63B25EA0','Horror','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('4B829500-3DC2-4710-9E82-DCFA5C7F243E','Music','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('3201C1AF-DC76-43CE-AFEA-D1888BDA1CCC','New','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('26185574-575D-450E-ADE7-042FF53AC4EC','Sci-Fi','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('69D55006-1ADA-406B-A85A-D57DAD55B7E1','Sports','2006-02-15 04:46:27');
+insert into category (Id,name,last_update) values ('6086D44F-D520-49B8-811E-C258F3CC5FE0','Travel','2006-02-15 04:46:27');

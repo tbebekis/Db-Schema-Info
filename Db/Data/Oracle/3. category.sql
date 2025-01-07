@@ -1,0 +1,16 @@
+insert into DVD.category (Id,name,last_update) values ('0C363C4B-D43E-4052-823A-122924D094C6','Action',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('D0C7E810-9DD3-40FA-8F17-9345D2B52853','Animation',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('7476AAD2-8BD5-4D3D-8027-9DD9F25DCCB0','Children',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('F457CB7D-C0E1-4874-A003-60CB84D77346','Classics',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('9BBE04AA-2A01-4671-B612-2DC94DCD696E','Comedy',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('A131B936-9DBA-4D89-9E8E-FEB941D2BBA5','Documentary',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('5C201B81-BF88-4B4D-B072-2CC9C15C2C73','Drama',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('4219DC90-07FD-4110-8110-D707EA58111C','Family',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('83E886CF-6FED-4245-AA99-93CE9372C9E9','Foreign',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('0023BA66-C284-471F-8093-F67042968B63','Games',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('0E470780-628B-4170-9023-33986CA92AE6','Horror',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('A1A1BCB3-6310-4A06-9CE7-F363BEA3AF19','Music',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('983B668F-4A67-47CA-8F76-05E141A3973C','New',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('A61837C8-E428-47DB-9D7C-3C457C42EA2A','Sci-Fi',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('35CE94DF-D116-46E8-A944-ACE7175AAED0','Sports',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));
+insert into DVD.category (Id,name,last_update) values ('62433425-9147-4A54-92D0-489B8EC43EF3','Travel',to_timestamp('2006-02-15 04:46:27', 'YYYY/MM/DD HH24:MI:SS'));

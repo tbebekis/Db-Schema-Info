@@ -1,0 +1,2 @@
+-- NOTE: must exist and be empty
+-- NOTE: triggers should be created after the data has been inserted

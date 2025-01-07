@@ -74,10 +74,10 @@ The SELECT statements return the following Field Lists.
 This repository contains `sql` files to create the widely used `dvdrental` sample database and feed it with data. That database can be used to test the SQL SELECT statements that return Database Schema information.
 
 #### Sample Database Schema
-The schema for the sample database can be found at the `\_SampleDb\Schema` folder. There is a sub-folder for each RDBMS containing `*.sql` files with `DDL` statements.
+The schema for the sample database can be found at the `\Db\Schema` folder. There is a sub-folder for each RDBMS containing `*.sql` files with `DDL` statements.
 
 #### Sample Database data
-The data for the sample database can be found at the `\_SampleDb\Data` folder. There is a sub-folder for each RDBMS containing `*.sql` files with `INSERT INTO` statements.
+The data for the sample database can be found at the `\Db\Data` folder. There is a sub-folder for each RDBMS containing `*.sql` files with `INSERT INTO` statements.
 
 #### The order of `*.sql` file execution
 
@@ -273,17 +273,19 @@ The following assumes that [Oracle Database Express Edition (XE)](https://www.or
 ```
     sqlplus SYSTEM/Password@localhost as SYSDBA
 
-    create pluggable database PDB1 admin user User_Name identified by "Password"
+    create pluggable database PDB1 admin user OwnerUserName identified by "OwnerUserPassword"
         ROLES = (dba) 
         default tablespace PDB1_USERS
-        datafile 'C:\Oracle\oradata\XE\PDB1\pdb1_users01.dbf' size 250m autoextend on
+        datafile 'C:\Oracle\oradata\XE\PDB1\pdb1_users01.dbf' size 2g autoextend on
         storage (maxsize 10g max_shared_temp_size 10g)
         file_name_convert=('C:\Oracle\oradata\XE\pdbseed', 'C:\Oracle\oradata\XE\PDB1\');
 
     alter pluggable database  PDB1 open read write force;   
+
+    alter user OwnerUserName quota unlimited on PDB1_USERS;
 ``` 
  
-#### To create a User in a Pluggable Database (PDB)
+#### To create a new User in a Pluggable Database (PDB)
 
 Connect to `sqlplus`.
 ```
@@ -302,7 +304,7 @@ Get a name of a pluggable database from the previous list, e.g. XEPDB1 and open 
     alter pluggable database XEPDB1 open;
 ```
 
-Create the user.
+Create the new user.
 
 ```
     create user YourUserName identified by YourPassword ACCOUNT UNLOCK;
@@ -341,22 +343,20 @@ To drop a pluggable database along with its datafiles.
 ```
     sqlplus SYSTEM/YourPassword@localhost as SYSDBA
 
-    create pluggable database DVD admin user User_Name identified by "Password"
+    create pluggable database DVDDB admin user DVD identified by "DVD_User_Password"
         ROLES = (dba) 
-        default tablespace DVD_USERS
-        datafile 'C:\Oracle\oradata\XE\DVD\dvd_users01.dbf' size 250m autoextend on
+        default tablespace DVDDB_USERS
+        datafile 'C:\Oracle\oradata\XE\DVDDB\dvddb_users01.dbf' size 2g autoextend on
         storage (maxsize 10g max_shared_temp_size 10g)
-        file_name_convert=('C:\Oracle\oradata\XE\pdbseed', 'C:\Oracle\oradata\XE\DVD\');
+        file_name_convert=('C:\Oracle\oradata\XE\pdbseed', 'C:\Oracle\oradata\XE\DVDDB\');
 
-    alter pluggable database DVD open read write force;   
+    alter pluggable database DVDDB open read write force;   
 
-    alter session set container=DVD;
+    alter session set container=DVDDB;
 
-    alter pluggable database DVD open;     
+    alter pluggable database DVDDB open;
 
-    create user YourUserName identified by YourPassword ACCOUNT UNLOCK;   
-
-    grant all privileges to YourUserName identified by YourPassword;
+    alter user DVD quota unlimited on DVDDB_USERS;
 ```
 
 ## Schema and Data origin, thanks to Ottmar Gobrecht

@@ -1,0 +1,66 @@
+---------------------------------------------------------------------
+● FirebirdSql
+---------------------------------------------------------------------
+SET TERM ^ ;
+
+create trigger {TriggerName} active {BeforeOrAfter} {InsertOrUpdate} on {TableName} as
+begin
+    NEW.last_update = current_timestamp;
+end^
+ 
+SET TERM ; ^ 
+
+---------------------------------------------------------------------
+● MsSql
+---------------------------------------------------------------------
+create trigger {TriggerName} on {TableName} {AfterOnly} {InsertOrUpdate} as
+begin
+    IF @@ROWCOUNT = 0 
+        RETURN;
+end;
+
+---------------------------------------------------------------------
+● MySql
+---------------------------------------------------------------------
+create trigger {TriggerName} {BeforeOrAfter} {InsertOrUpdate} on {TableName} for each row
+begin
+end;
+
+---------------------------------------------------------------------
+● Oracle
+---------------------------------------------------------------------
+
+create trigger {TriggerName} {BeforeOrAfter} {InsertOrUpdate} on {TableName} for each row
+begin
+  :new.last_update := current_date;
+end; 
+
+---------------------------------------------------------------------
+● PostgreSql
+---------------------------------------------------------------------
+create function UpdateDate_{TableName}() returns trigger as
+$$
+begin
+    NEW.last_update := current_timestamp;
+    RETURN NEW;
+end;
+$$ language plpgsql ;
+
+create trigger {TriggerName} after update on {TableName}
+   for each row execute procedure UpdateDate_{TableName}();
+
+ 
+---------------------------------------------------------------------
+● Sqlite
+---------------------------------------------------------------------
+create trigger {TriggerName} {BeforeOrAfter} {InsertOrUpdate} on {TableName} for each row
+begin
+   update {TableName}
+   set last_update = current_date
+   where rowid = new.rowid ;
+end; 
+
+      
+
+
+

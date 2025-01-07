@@ -1,0 +1,16 @@
+insert into dbo.category (Id,name,last_update) values ('9D25F239-E639-4650-BE1C-3F0B0E286264','Action','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('E482C37C-8CA1-4AFF-B34E-FB814A5D5EC7','Animation','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('09E473AA-AF7B-4DF5-9280-B2893266AD41','Children','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('F6DBCD39-BD03-4E6B-BC9C-94DA18F898F7','Classics','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('A95EA748-EFC0-4C24-A5C3-52E539829177','Comedy','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('EECBEFEA-5E00-4909-A5DB-CC6D489685CC','Documentary','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('9E607B20-4D4F-4852-A29F-3A36C82E800A','Drama','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('97DD912B-0395-450E-A1AE-AC0F0057F70A','Family','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('DA6D1B81-7EA9-405D-A3E8-EE36F6DE3F46','Foreign','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('EFE2D8F5-CD3D-4B94-A316-F0A9DED53D0A','Games','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('F8AD8354-176C-4BA6-8575-0832E4B45CBC','Horror','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('5DE762CF-F720-40D9-88EE-3247AD49C1B4','Music','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('98BF5C41-7E8A-480E-9551-5830F7A03A2E','New','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('224170EC-D1AF-4849-8DBF-E4237AB9FE53','Sci-Fi','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('AA03DDA0-5327-467E-A4BB-2E6DF36326B3','Sports','2006-02-15 04:46:27');
+insert into dbo.category (Id,name,last_update) values ('15F38981-0F0E-4790-993D-CF53172468D8','Travel','2006-02-15 04:46:27');
