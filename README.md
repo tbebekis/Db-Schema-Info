@@ -1,6 +1,6 @@
 # Database Schema information for various RDBMS
 
-This repository contains a number of SQL SELECT statements to get Database Schema information about tables, columns, views, triggers, stored procedures, constraints, etc. for the following RDBMS
+This [Github repository](https://github.com/tbebekis/Db-Schema-Info) contains a number of SQL `SELECT` statements to get Database Schema information about tables, columns, views, triggers, stored procedures, constraints, etc. for the following RDBMS
 
 - FirebirdSql
 - MsSql
