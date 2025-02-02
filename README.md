@@ -1,6 +1,6 @@
 # Database Schema information for various RDBMS
 
-This repository contains a number of SQL SELECT statements to get Database Schema information for the following RDBMS
+This repository contains a number of SQL SELECT statements to get Database Schema information about tables, columns, views, triggers, stored procedures, constraints, etc. for the following RDBMS
 
 - FirebirdSql
 - MsSql
@@ -8,6 +8,8 @@ This repository contains a number of SQL SELECT statements to get Database Schem
 - PostgreSql
 - Sqlite
 - Oracle
+
+Under the root folder there is a sub-folder for each RDBMS containing *.sql files with the `SELECT` statements that return Database Schema information.
 
 ## Returned Field Lists of the SELECT statements
 The SELECT statements return the following Field Lists.
@@ -71,7 +73,7 @@ The SELECT statements return the following Field Lists.
 - IncrementBy	
 
 ## Sample Database
-This repository contains `sql` files to create the widely used `dvdrental` sample database and feed it with data. That database can be used to test the SQL SELECT statements that return Database Schema information.
+This repository contains `sql` files to create the widely used `dvdrental` sample database and feed it with data. That database can then be used to test the SQL SELECT statements that return Database Schema information.
 
 #### Sample Database Schema
 The schema for the sample database can be found at the `\Db\Schema` folder. There is a sub-folder for each RDBMS containing `*.sql` files with `DDL` statements.
@@ -135,35 +137,14 @@ SQL> exit;
 C:\>
 ```
 
-#### MsSql
+#### MsSql, MySql or MariaDb and PostgreSql
 Using Dbeaver.
   - Add a connection to a Microsoft Sql Server, e.g. localhost,
   - expand the connection tree node,
   - right click on the `Databases` tree node
   - click on the `Create New Database` menu item
   - in the `Create...` dialog box provide a database name, e.g. `DVD`
-  - click on `OK` button
-
-
-#### MySql or MariaDb
-Using Dbeaver. 
-
-  - Add a connection to a MySql or MariaDb Server, e.g. localhost,
-  - expand the connection tree node,
-  - right click on the `Databases` tree node
-  - click on the `Create New Database` menu item
-  - in the `Create...` dialog box provide a database name, e.g. `DVD`
-  - click on `OK` button
-
-#### PostgreSql
-Using Dbeaver. 
-
-  - Add a connection to a PostgreSql Server, e.g. localhost,
-  - expand the connection tree node,
-  - right click on the `Databases` tree node
-  - click on the `Create New Database` menu item
-  - in the `Create...` dialog box provide a database name, e.g. `DVD`
-  - click on `OK` button
+  - click on `OK` button 
 
 #### Sqlite
 Using Dbeaver. 
@@ -174,26 +155,14 @@ Using Dbeaver.
 
 ## How to drop the sample Database
 
-#### FirebirdSql
+#### FirebirdSql and Sqlite
 Close any connection to the database.
 
 Go to database's folder and delete the database file.
-#### MsSql
+#### MsSql, MySql or MariaDb and PostgreSql
 Close any connection to the database.
 
 In Dbeaver select the database and hit the Delete key.
-#### MySql or MariaDb
-Close any connection to the database.
-
-In Dbeaver select the database and hit the Delete key.
-#### PostgreSql
-Close any connection to the database.
-
-In Dbeaver select the database and hit the Delete key.
-#### Sqlite
-Close any connection to the database.
-
-Go to database's folder and delete the database file.
 
 ## Oracle Databases
 
