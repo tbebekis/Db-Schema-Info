@@ -1,13 +1,13 @@
 select
     ROUTINE_SCHEMA                    as SchemaName,
-    ROUTINE_NAME                      as ProcedureName,    
-    ROUTINE_TYPE                      as ProcedureType,  
-    ROUTINE_DEFINITION                as Definition  
-from 
+    ROUTINE_NAME                      as ProcedureName,
+    ROUTINE_TYPE                      as ProcedureType,
+    ROUTINE_DEFINITION                as Definition
+from
     INFORMATION_SCHEMA.ROUTINES
-where 
+where
     (ROUTINE_TYPE = 'PROCEDURE' or ROUTINE_TYPE = 'FUNCTION')
-    and ROUTINE_SCHEMA not in ('sys', 'mysql', 'information_schema', 'performance_schema') 
+    and ROUTINE_SCHEMA = DATABASE()
 order by
-    ROUTINE_SCHEMA, 
+    ROUTINE_SCHEMA,
     ROUTINE_NAME
