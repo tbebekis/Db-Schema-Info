@@ -1,21 +1,18 @@
-select 
-    t.OWNER                                     as SchemaName,        
-    t.TABLE_NAME                                as TableName,
-    t.COLUMN_NAME                               as FieldName,
-    t.DATA_TYPE                                 as DataType, 
-    ' '                                         as DataSubType,
-    case t.NULLABLE when 'Y' then 1 else 0 end  as IsNullable,  
-    coalesce(t.CHAR_LENGTH, 0)                  as SizeInChars,
-    coalesce(t.DATA_LENGTH, 0)                  as SizeInBytes,
-    coalesce(t.DATA_PRECISION, 0)               as DecimalPrecision,
-    coalesce(t.DATA_SCALE, 0)                   as DecimalScale,    
-    ' '                                         as DefaultValue,
-    ' '                                         as Expression,
-    t.COLUMN_ID                                 as OrdinalPosition
-from 
-    ALL_TAB_COLUMNS t 
-        inner join USER_VIEWS uv on uv.VIEW_NAME = t.TABLE_NAME
-order by
-	t.TABLE_NAME,
-	t.COLUMN_ID    
-	
+select
+    c.OWNER as SchemaName,
+    c.TABLE_NAME as TableName,
+    c.COLUMN_NAME as FieldName,
+    c.DATA_TYPE as DataType,
+    c.DATA_TYPE_OWNER as DataSubType,
+    case c.NULLABLE when 'Y' then 1 else 0 end as IsNullable,
+    c.CHAR_LENGTH as SizeInChars,
+    c.DATA_LENGTH as SizeInBytes,
+    c.DATA_PRECISION as DecimalPrecision,
+    c.DATA_SCALE as DecimalScale,
+    null as DefaultValue,
+    null as Expression,
+    c.COLUMN_ID as OrdinalPosition
+from ALL_TAB_COLUMNS c
+join ALL_VIEWS v on v.OWNER = c.OWNER and v.VIEW_NAME = c.TABLE_NAME
+where c.OWNER = SYS_CONTEXT('USERENV', 'CURRENT_SCHEMA')
+order by c.TABLE_NAME, c.COLUMN_ID
