@@ -13,7 +13,8 @@ select
     coalesce(cc.definition, '') as Expression,
     c.ORDINAL_POSITION as OrdinalPosition,
     sc.is_identity as IsIdentity,
-    sc.is_computed as IsComputed
+    -- Rowversion values are assigned by SQL Server on insert and update.
+    case when sc.is_computed = 1 or c.DATA_TYPE in ('timestamp', 'rowversion') then 1 else 0 end as IsComputed
 from INFORMATION_SCHEMA.COLUMNS as c
 join sys.schemas as s on s.name = c.TABLE_SCHEMA
 join sys.tables as t on t.schema_id = s.schema_id and t.name = c.TABLE_NAME
