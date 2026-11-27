@@ -1,13 +1,13 @@
 select
-    t.RDB$OWNER_NAME                       as SchemaName,
-    tr.RDB$TRIGGER_NAME                    as TriggerName,
-    tr.RDB$RELATION_NAME                   as TableName,
-    case tr.RDB$TRIGGER_TYPE
+    trim(t.RDB$OWNER_NAME)                             as SchemaName,
+    trim(tr.RDB$TRIGGER_NAME)                          as TriggerName,
+    trim(tr.RDB$RELATION_NAME)                         as TableName,
+    trim(case tr.RDB$TRIGGER_TYPE
         when 1      then 'before insert'
         when 2      then 'after insert'
         when 3      then 'before update'
         when 4      then 'after update'
-        when 5      then 'before delete'      
+        when 5      then 'before delete'
         when 6      then 'after delete'
         when 17     then 'before insert or update'
         when 18     then 'after insert or update'
@@ -21,17 +21,17 @@ select
         when 8193   then 'on disconnect'
         when 8194   then 'on transaction start'
         when 8195   then 'on transaction commit'
-        when 8196   then 'on transaction rollback'      
-    end                                    as TriggerType,
-    coalesce(tr.RDB$TRIGGER_INACTIVE, 0)   as IsInactive,
-    tr.RDB$TRIGGER_SOURCE                  as Definition,
-    coalesce(tr.RDB$VALID_BLR, 0)          as IsValid
+        when 8196   then 'on transaction rollback'
+    end)                                               as TriggerType,
+    coalesce(tr.RDB$TRIGGER_INACTIVE, 0)               as IsInactive,
+    tr.RDB$TRIGGER_SOURCE                              as Definition,
+    coalesce(tr.RDB$VALID_BLR, 0)                      as IsValid
 from
     RDB$TRIGGERS tr
-       left join RDB$RELATIONS t on tr.RDB$RELATION_NAME = t.RDB$RELATION_NAME        
+       left join RDB$RELATIONS t on tr.RDB$RELATION_NAME = t.RDB$RELATION_NAME
 where
-        (tr.RDB$SYSTEM_FLAG is null or tr.RDB$SYSTEM_FLAG  = 0)                
-    and (tr.RDB$RELATION_NAME <> '')                                     
+        (tr.RDB$SYSTEM_FLAG is null or tr.RDB$SYSTEM_FLAG  = 0)
+    and (tr.RDB$RELATION_NAME <> '')
 order by
     tr.RDB$RELATION_NAME,
-    tr.RDB$TRIGGER_NAME   
+    tr.RDB$TRIGGER_NAME
