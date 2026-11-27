@@ -1,5 +1,5 @@
 select
-    tl.[schema]                                         as SchemaName,
+    'main'                                              as SchemaName,
     i.tbl_name                                          as TableName,
     i.name                                              as IndexName,
     coalesce(ii.name, '')                               as FieldName,
@@ -8,10 +8,9 @@ select
     'INDEX'                                             as IndexType,
     i.sql                                               as Definition
 from
-    sqlite_master i
-        inner join pragma_index_info(i.name) ii
-        inner join pragma_index_list(i.tbl_name) il on il.name = i.name
-        inner join pragma_table_list(i.tbl_name) tl on tl.name = i.tbl_name
+    main.sqlite_master i
+        inner join pragma_index_info(i.name, 'main') ii
+        inner join pragma_index_list(i.tbl_name, 'main') il on il.name = i.name
 where
     i.type = 'index'
     and il.origin not in ('pk', 'u')

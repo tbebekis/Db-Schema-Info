@@ -1,5 +1,5 @@
 select
-    tl.[schema]                                         as SchemaName,
+    'main'                                              as SchemaName,
     t.name                                              as TableName,
     ti.name                                             as FieldName,
     ti.type                                             as DataType,
@@ -15,9 +15,8 @@ select
     case when 0 then 1 else 0 end                       as IsIdentity,
     case when ti.hidden in (2, 3) then 1 else 0 end     as IsComputed
 from
-    sqlite_master t
-        inner join pragma_table_list(t.name) tl on tl.name = t.name
-        inner join pragma_table_xinfo(t.name) ti
+    main.sqlite_master t
+        inner join pragma_table_xinfo(t.name, 'main') ti
 where
     t.type = 'view'
 order by
