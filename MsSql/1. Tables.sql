@@ -1,7 +1,6 @@
-select  
-	TABLE_SCHEMA              as SchemaName,
-	TABLE_NAME                as TableName
-from 
-	INFORMATION_SCHEMA.TABLES
-where
-  	TABLE_TYPE = 'BASE TABLE'
+select
+    SCHEMA_NAME(t.schema_id) as SchemaName,
+    t.name as TableName
+from sys.tables as t
+where t.is_ms_shipped = 0
+order by SchemaName, TableName;

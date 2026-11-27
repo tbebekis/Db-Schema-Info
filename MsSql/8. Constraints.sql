@@ -1,64 +1,60 @@
-select distinct
-  Constraints.constraint_schema                    as SchemaName,
-  Constraints.constraint_name                      as ConstraintName,
-  coalesce(Constraints.constraint_type, '')        as ConstraintTypeText,
-  case coalesce(Constraints.constraint_type, '')
-      when 'PRIMARY KEY' then 1
-      when 'FOREIGN KEY' then 2
-      when 'UNIQUE' then 3
-      when 'CHECK' then 4
-      when 'NOT NULL' then 5
-      else 0
-  end                                              as ConstraintType,
-  KeyColumns.table_name                            as TableName,
-  KeyColumns.column_name                           as FieldName,
-  coalesce(Constraints2.table_name, '')            as ForeignTable,
-  coalesce(ForeignInfo.ForeignField, '')           as ForeignField,
-  coalesce(Constraints2.table_schema, '')          as ForeignSchema,
-  coalesce(Refs.update_rule, '')                   as UpdateRule,
-  coalesce(Refs.delete_rule, '')                   as DeleteRule,
-  KeyColumns.ordinal_position                      as FieldPosition
-from
-  INFORMATION_SCHEMA.TABLE_CONSTRAINTS as Constraints
-   		inner join INFORMATION_SCHEMA.KEY_COLUMN_USAGE as KeyColumns
-   			on (Constraints.constraint_catalog = KeyColumns.constraint_catalog or Constraints.constraint_catalog is null)
-   			and Constraints.constraint_schema = KeyColumns.constraint_schema
-   			and Constraints.constraint_name = KeyColumns.constraint_name
-   			and Constraints.table_name = KeyColumns.table_name
-   		left join INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS as Refs
-   			on (Constraints.constraint_catalog = Refs.constraint_catalog or Constraints.constraint_catalog is null)
-   			and Constraints.constraint_schema = Refs.constraint_schema
-   			and Constraints.constraint_name = Refs.constraint_name
-   		left join INFORMATION_SCHEMA.TABLE_CONSTRAINTS as Constraints2
-   			on (Constraints2.constraint_catalog = Refs.constraint_catalog or Constraints2.constraint_catalog is null)
-   			and Constraints2.constraint_schema = Refs.unique_constraint_schema
-   			and Constraints2.constraint_name = Refs.unique_constraint_name
-   		left join (
-   select
-     ForeignKeys.name                                  as ConstraintName,
-     SCHEMA_NAME(ForeignKeys.schema_id)                as SchemaName,
-     OBJECT_NAME(ForeignKeys.parent_object_id)         as TableName,
-     ParentColumns.name                                as FieldName,
-     OBJECT_NAME(ForeignKeys.referenced_object_id)     as ForeignTable,
-     RefColums.name                                    as ForeignField
-   FROM
-     sys.foreign_keys as ForeignKeys
-       inner join sys.foreign_key_columns as ForeignKeyColumns
-               on  ForeignKeys.parent_object_id = ForeignKeyColumns.parent_object_id
-               and ForeignKeys.object_id = ForeignKeyColumns.constraint_object_id
-               and ForeignKeys.referenced_object_id = ForeignKeyColumns.referenced_object_id
-       inner join sys.columns as ParentColumns
-               on  ForeignKeyColumns.parent_object_id = ParentColumns.object_id
-               and ForeignKeyColumns.parent_column_id = ParentColumns.column_id
-       inner join sys.columns as RefColums
-               on  ForeignKeyColumns.referenced_object_id = RefColums.object_id
-               and ForeignKeyColumns.referenced_column_id = RefColums.column_id
-   ) ForeignInfo
-   	on  ForeignInfo.ConstraintName = Constraints.constraint_name
-   	and ForeignInfo.SchemaName = Constraints.constraint_schema
-   	and ForeignInfo.TableName = KeyColumns.table_name
-   	and ForeignInfo.FieldName = KeyColumns.column_name
-   order by
-       KeyColumns.table_name,
-       Constraints.constraint_name,
-       ordinal_position    
+with ConstraintFields as
+(
+    select
+        k.parent_object_id as TableId,
+        k.name as ConstraintName,
+        case k.type when 'PK' then 'PRIMARY KEY' else 'UNIQUE' end as ConstraintTypeText,
+        case k.type when 'PK' then 1 else 3 end as ConstraintType,
+        c.name as FieldName,
+        '' as ForeignTable,
+        '' as ForeignField,
+        '' as ForeignSchema,
+        '' as UpdateRule,
+        '' as DeleteRule,
+        ic.key_ordinal as FieldPosition,
+        '' as Definition
+    from sys.key_constraints as k
+    join sys.index_columns as ic on ic.object_id = k.parent_object_id and ic.index_id = k.unique_index_id
+    join sys.columns as c on c.object_id = ic.object_id and c.column_id = ic.column_id
+    where ic.key_ordinal > 0
+
+    union all
+
+    select
+        f.parent_object_id, f.name, 'FOREIGN KEY', 2, c.name,
+        r.name, rc.name, SCHEMA_NAME(r.schema_id),
+        REPLACE(f.update_referential_action_desc, '_', ' '),
+        REPLACE(f.delete_referential_action_desc, '_', ' '),
+        fc.constraint_column_id, ''
+    from sys.foreign_keys as f
+    join sys.foreign_key_columns as fc on fc.constraint_object_id = f.object_id
+    join sys.columns as c on c.object_id = fc.parent_object_id and c.column_id = fc.parent_column_id
+    join sys.tables as r on r.object_id = fc.referenced_object_id
+    join sys.columns as rc on rc.object_id = fc.referenced_object_id and rc.column_id = fc.referenced_column_id
+
+    union all
+
+    select
+        k.parent_object_id, k.name, 'CHECK', 4, coalesce(c.name, ''),
+        '', '', '', '', '', 0, k.definition
+    from sys.check_constraints as k
+    left join sys.columns as c on c.object_id = k.parent_object_id and c.column_id = k.parent_column_id
+)
+select
+    SCHEMA_NAME(t.schema_id) as SchemaName,
+    t.name as TableName,
+    f.ConstraintName,
+    f.ConstraintTypeText,
+    f.ConstraintType,
+    f.FieldName,
+    f.ForeignTable,
+    f.ForeignField,
+    f.ForeignSchema,
+    f.UpdateRule,
+    f.DeleteRule,
+    f.FieldPosition,
+    f.Definition
+from ConstraintFields as f
+join sys.tables as t on t.object_id = f.TableId
+where t.is_ms_shipped = 0
+order by SchemaName, TableName, ConstraintName, FieldPosition;

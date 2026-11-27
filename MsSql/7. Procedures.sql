@@ -1,10 +1,8 @@
 select
-  r.SPECIFIC_SCHEMA              as SchemaName,
-  r.SPECIFIC_NAME                as ProcedureName,
-  r.ROUTINE_TYPE                 as ProcedureType,
-  r.ROUTINE_DEFINITION           as Definition
-from 
-  INFORMATION_SCHEMA.ROUTINES r
-  	left join sys.procedures p on p.name  = r.SPECIFIC_NAME and p.type = 'P'
-where 
-	is_ms_shipped = 0
+    SCHEMA_NAME(p.schema_id) as SchemaName,
+    p.name as ProcedureName,
+    'PROCEDURE' as ProcedureType,
+    OBJECT_DEFINITION(p.object_id) as Definition
+from sys.procedures as p
+where p.is_ms_shipped = 0
+order by SchemaName, ProcedureName;
